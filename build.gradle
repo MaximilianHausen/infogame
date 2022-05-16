@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+}
+
+group 'net.totodev'
+version '0.1'
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+
+    implementation 'net.totodev:infoengine:0.1'
+    runtimeOnly('net.totodev:infoengine:0.1') {
+        capabilities {
+            requireCapability("net.totodev:infoengine-x64windows")
+        }
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
