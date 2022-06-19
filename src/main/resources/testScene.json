@@ -1,0 +1,29 @@
+{
+  "formatVersion": "1.0",
+  "name": "TestScene",
+
+  "entityCount": 1,
+
+  "systems": [
+    "net.totodev.infoengine.core.systems.Updater"
+  ],
+
+  "components": [
+    {
+      "type": "net.totodev.infoengine.core.components.Transform2d",
+      "data": [
+        {
+          "entity": 0,
+          "value": "1|0|0|1|0|0"
+        }
+      ]
+    }
+  ],
+
+  "globalComponents": [
+    {
+      "type": "net.totodev.infoengine.core.components.UpdateRate",
+      "data": "60"
+    }
+  ]
+}

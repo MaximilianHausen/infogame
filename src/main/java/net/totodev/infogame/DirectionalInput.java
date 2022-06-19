@@ -6,7 +6,7 @@ import org.joml.Vector2f;
 import static org.lwjgl.glfw.GLFW.glfwGetKey;
 
 public class DirectionalInput {
-    private int up, right, down, left;
+    private final int up, right, down, left;
 
     public DirectionalInput(int up, int right, int down, int left) {
         this.up = up;
