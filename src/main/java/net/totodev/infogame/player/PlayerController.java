@@ -10,6 +10,6 @@ public class PlayerController extends BaseSystem {
 
     @EventSubscriber(CoreEvents.Update)
     public void update() {
-        stateMachine.updateCurrentState(getScene(), getScene().getEntitiesByComponents(PlayerComponent.class).getFirst());
+        stateMachine.updateCurrentState(getScene(), getScene().getEntitiesByComponents(PlayerFlag.class).getFirst());
     }
 }

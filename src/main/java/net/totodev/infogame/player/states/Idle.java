@@ -6,7 +6,7 @@ import net.totodev.infogame.statemachine.State;
 import java.util.Arrays;
 
 public class Idle extends State {
-    String[] name = new String[]{"walking", "attack"};
+    String[] targets = new String[]{"walking", "attack"};
 
     @Override
     public void update(Scene scene, int entity) {
@@ -15,7 +15,7 @@ public class Idle extends State {
 
     @Override
     public boolean canChangeTo(State state) {
-        return Arrays.stream(name).anyMatch(n -> state.getName().equals(n));
+        return Arrays.stream(targets).anyMatch(n -> state.getName().equals(n));
     }
     @Override
     public String getName() {
