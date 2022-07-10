@@ -1,0 +1,102 @@
+{
+  "formatVersion": "1.0",
+  "name": "TestScene",
+
+  "entityCount": 3,
+
+  "systems": [
+    "net.totodev.infoengine.core.systems.Updater",
+    "net.totodev.infoengine.rendering.Renderer2d",
+    "net.totodev.infogame.temp.SimpleMovementSystem",
+    "net.totodev.infogame.health.HealthChanger",
+    "net.totodev.infogame.health.HealthAnimator"
+  ],
+
+  "components": [
+    {
+      "type": "net.totodev.infoengine.core.components.Transform2d",
+      "data": [
+        {
+          "entity": 0,
+          "value": "1|0|0|1|0|0"
+        },
+        {
+          "entity": 1,
+          "value": "1|0|0|1|0|0"
+        },
+        {
+          "entity": 2,
+          "value": "1|0|0|1|0|0"
+        },
+        {
+          "entity": 3,
+          "value": "1|0|0|1|0|0"
+        }
+      ]
+    },
+    {
+      "type": "net.totodev.infoengine.rendering.Sprite2d",
+      "data": [
+        {
+          "entity": 0,
+          "value": "textures/rooms/testroom.png"
+        },
+        {
+          "entity": 1,
+          "value": "textures/character/idle_down_0.png"
+        },
+        {
+          "entity": 3,
+          "value": "textures/healthbar/10.png"
+        }
+      ]
+    },
+    {
+      "type": "net.totodev.infoengine.physics.BoxCollider2d",
+      "data": [
+        {
+          "entity": 1,
+          "value": "1|1|0|0|0|default2d"
+        }
+      ]
+    },
+    {
+      "type": "net.totodev.infoengine.rendering.Camera2d",
+      "data": [
+        {
+          "entity": 2,
+          "value": "20|20|0|0"
+        }
+      ]
+    },
+    {
+      "type": "net.totodev.infogame.player.PlayerFlag",
+      "data": [
+        {
+          "entity": 1,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "net.totodev.infogame.health.Health",
+      "data": [
+        {
+          "entity": 3,
+          "value": "10"
+        }
+      ]
+    }
+  ],
+
+  "globalComponents": [
+    {
+      "type": "net.totodev.infoengine.core.components.UpdateRate",
+      "data": "60"
+    },
+    {
+      "type": "net.totodev.infoengine.rendering.PixelScale",
+      "data": "16"
+    }
+  ]
+}

@@ -8,10 +8,10 @@ import net.totodev.infoengine.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        Engine.initialize("Roguelike", new SemVer(1, 0, 0), 800, 800);
-        ResourceManager.loadResourcePack(IO.getFileFromResource("", false));
+        Engine.initialize("Roguelike", new SemVer(1, 0, 0), 1000, 1000);
+        ResourceManager.loadResourcePack(IO.getFileFromResource("pack", false));
 
-        String text = IO.getTextFromFile(IO.getFileFromResource("scenes/testScene.json", false));
+        String text = IO.getTextFromFile(IO.getFileFromResource("pack/scenes/testScene.json", false));
         Scene scene = SceneLoader.loadScene(text);
 
         scene.start();

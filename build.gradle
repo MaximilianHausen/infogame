@@ -1,5 +1,6 @@
 plugins {
-    id 'java'
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
 }
 
 group 'net.totodev'
@@ -13,9 +14,6 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
-
     implementation 'net.totodev:infoengine:0.1-SNAPSHOT'
     runtimeOnly('net.totodev:infoengine:0.1-SNAPSHOT') {
         capabilities {
@@ -26,6 +24,6 @@ dependencies {
     implementation 'org.lwjgl:lwjgl-glfw:3.3.1'
 }
 
-test {
-    useJUnitPlatform()
+application {
+    mainClass = "net.totodev.infogame.Main"
 }

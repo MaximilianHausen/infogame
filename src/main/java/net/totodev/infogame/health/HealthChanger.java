@@ -5,7 +5,7 @@ import net.totodev.infogame.player.PlayerFlag;
 
 public class HealthChanger extends BaseSystem {
     @CachedComponent
-    private HealthComponent health;
+    private Health health;
     @CachedComponent
     private PlayerFlag playerFlag;
 
@@ -14,6 +14,6 @@ public class HealthChanger extends BaseSystem {
         if (!playerFlag.isPresentOn(playerId)) return;
         // if (!enemyFlag.isPresentOn(enemyId)) return; TODO: Component enemy
         health.changeHealth(playerId, -1);
-        getScene().events.invokeEvent(HealthEvents.HealthChanged, getScene().getEntitiesByComponents(HealthComponent.class).getFirst(), -1);
+        getScene().events.invokeEvent(HealthEvents.HealthChanged, getScene().getEntitiesByComponents(Health.class).getFirst(), -1);
     }
 }

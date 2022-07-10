@@ -10,6 +10,6 @@ public class HealthAnimator extends BaseSystem {
 
     @EventSubscriber(HealthEvents.HealthChanged)
     public void updateImage(int entityId, int newHealth) {
-        sprite.setSprite(entityId, ResourceManager.getImage("textures/healthbar/" + newHealth + ".png"));
+        sprite.setSprite(entityId, ResourceManager.getImage("pack/textures/healthbar/" + newHealth + ".png"));
     }
 }

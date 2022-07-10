@@ -5,8 +5,9 @@ import net.totodev.infoengine.resources.scene.ComponentDataModel;
 import org.eclipse.collections.api.map.primitive.MutableIntIntMap;
 import org.eclipse.collections.impl.factory.primitive.IntIntMaps;
 import org.jetbrains.annotations.*;
+import org.joml.Matrix3x2f;
 
-public class HealthComponent implements Component {
+public class Health implements Component {
     private final MutableIntIntMap healths = IntIntMaps.mutable.empty();
 
     public int getHealth(int entityId) {
