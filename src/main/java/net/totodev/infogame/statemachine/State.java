@@ -1,7 +1,7 @@
 package net.totodev.infogame.statemachine;
 
 import net.totodev.infoengine.ecs.Scene;
-
+// Abstract class for Methods
 public abstract class State {
     public StateMachine currentMachine;
 

@@ -12,7 +12,8 @@ import org.joml.Vector2f;
 import java.util.Arrays;
 
 import static org.lwjgl.glfw.GLFW.*;
-
+// Walkingstate
+//Funktioniert für alle Bewegungsrichtungen
 public class Walking extends State {
     String[] targets = new String[]{"idle", "attack"};
 
