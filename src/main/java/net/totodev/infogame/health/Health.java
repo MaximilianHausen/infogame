@@ -9,34 +9,33 @@ import org.joml.Matrix3x2f;
 
 public class Health implements Component {
 
-    //MutableIntIntMap healths:erstellte Map speichert die insgesamte Health aller Entities
+    // Speichert die insgesamte Health aller Entities
     private final MutableIntIntMap healths = IntIntMaps.mutable.empty();
 
-    /**gibt die Health einer bestimmten Entity zurück
-     *
+    /**
+     * Gibt die Health einer bestimmten Entity zurück
      * @param entityId: Eingebene Entity
-     * @return
      */
     public int getHealth(int entityId) {
         return healths.get(entityId);
     }
 
-    /**setzt die Health einer Entity auf eine neue Health
-     *
-     * @param entityId:Eingegebene Entity
+    /**
+     * Setzt die Health einer Entity auf eine neue Health
+     * @param entityId: Eingegebene Entity
      * @param health: Neue Health
      */
     public void setHealth(int entityId, int health) {
         healths.put(entityId, health);
     }
 
-    /**ändert die Health einer Entity um eine Menge
-     *
+    /**
+     * Ändert die Health einer Entity um eine Menge
      * @param entityId: Eingegebene Entity
      * @param amount: Eingebene Menge
      */
     public void changeHealth(int entityId, int amount) {
-        if (!healths.contains(entityId)) return;
+        if (!healths.containsKey(entityId) || healths.get(entityId) + amount < 0 || healths.get(entityId) + amount > 10) return;
         healths.addToValue(entityId, amount);
     }
 
@@ -57,6 +56,6 @@ public class Health implements Component {
 
     @Override
     public boolean isPresentOn(int entityId) {
-        return healths.contains(entityId);
+        return healths.containsKey(entityId);
     }
 }

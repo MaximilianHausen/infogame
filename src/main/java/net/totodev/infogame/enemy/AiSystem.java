@@ -21,7 +21,7 @@ public class AiSystem extends BaseSystem {
         Vector2f playerPos = transform.getPosition(playerId, new Vector2f());
         getScene().getEntitiesByComponents(AiConfig.class).forEach(e -> {
             Vector2f pos = transform.getPosition(e, new Vector2f());
-            transform.setPosition(e, pos.lerp(playerPos, 0.1f));
+            transform.move(e, playerPos.sub(pos).mul(0.02f));
         });
     }
 }

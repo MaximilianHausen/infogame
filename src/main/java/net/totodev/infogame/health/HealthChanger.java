@@ -6,22 +6,31 @@ import net.totodev.infogame.player.PlayerFlag;
 public class HealthChanger extends BaseSystem {
     @CachedComponent
     private Health health;
-    @CachedComponent
-    private PlayerFlag playerFlag;
+
+    int iFrames = 0;
 
     /**
-     * prüft ob es sich um einen Player oder Enemy handelt: Ändert die health des Spielers um -1, gibt es an das Event HealthChanged weiter (für HealthAnimator)
+     * Prüft, ob es sich um einen Player oder Enemy handelt: Ändert die health des Spielers um -1, gibt es an das Event HealthChanged weiter (für HealthAnimator)
      * @param layer
-     * @param playerId: Eingebener Player
-     * @param playerType
-     * @param enemyId: Eingegebener Enemy
-     * @param enemyType
+     * @param hurtId: Eingebener Player
+     * @param hurtType
+     * @param damageId: Eingegebener Enemy
+     * @param damageType
      */
     @EventSubscriber("PhysStay")
-    public void decreaseHealth(int layer, int playerId, int playerType, int enemyId, int enemyType) {
-        if (!playerFlag.isPresentOn(playerId)) return;
-        // if (!enemyFlag.isPresentOn(enemyId)) return; TODO: Component enemy
-        health.changeHealth(playerId, -1);
-        getScene().events.invokeEvent(HealthEvents.HealthChanged, getScene().getEntitiesByComponents(Health.class).getFirst(), -1);
+    public void decreaseHealth(int layer, int hurtId, int hurtType, int damageId, int damageType) {
+        // 11 = hurtbox, 10 = hitbox
+        if (hurtType != 11 || damageType != 10) return;
+
+        if (iFrames > 0) {
+            iFrames--;
+            return;
+        }
+
+        int healthId = getScene().getEntitiesByComponents(Health.class).getFirst();
+        health.changeHealth(healthId, -1);
+        getScene().events.invokeEvent(HealthEvents.HealthChanged, healthId, health.getHealth(healthId)); // Listener: HealthAnimator
+
+        iFrames = 60;
     }
 }
