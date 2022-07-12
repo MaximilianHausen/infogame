@@ -19,4 +19,8 @@ public class StateMachine {
         currentState = targetState;
         currentState.currentMachine = this;
     }
+
+    public State getCurrentState() {
+        return currentState;
+    }
 }
