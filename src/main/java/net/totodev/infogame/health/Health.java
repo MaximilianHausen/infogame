@@ -13,28 +13,23 @@ public class Health implements Component {
     public int getHealth(int entityId) {
         return healths.get(entityId);
     }
+
     public void setHealth(int entityId, int health) {
-        if (!isPresentOn(entityId)) return;
         healths.put(entityId, health);
     }
+
     public void changeHealth(int entityId, int amount) {
-        int oldHealth = getHealth(entityId);
-        setHealth(entityId, oldHealth + amount);
+        if (!healths.contains(entityId)) return;
+        healths.addToValue(entityId, amount);
     }
 
     @Override
-    public void addOnEntity(int entityId) {
-        healths.put(entityId, 0);
-    }
-    @Override
-    public void removeFromEntity(int entityId) {
+    public void resetEntity(int entityId) {
         healths.remove(entityId);
     }
 
     @Override
     public void deserializeState(@NotNull ComponentDataModel data) {
-        if (!isPresentOn(data.entity))
-            addOnEntity(data.entity);
         setHealth(data.entity, Integer.parseInt(data.value));
     }
     @Override
